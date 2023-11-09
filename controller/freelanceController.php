@@ -1,0 +1,5 @@
+<?php
+$metadata = [
+    "title"=>"Dashboard"
+];
+

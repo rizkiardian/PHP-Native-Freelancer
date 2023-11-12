@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <title>Beri Ulasan | Nganggur</title>
         <!-- FAVICON -->
-        <link rel="icon" type="image/x-icon" href="img/Logo.png" />
+        <link rel="icon" type="image/x-icon" href="../../assets/logo/Logo.png" />
         <!-- ICON -->
         <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css" />
         <!-- Bootstrap -->
@@ -15,14 +15,14 @@
         <!-- AOS -->
         <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
         <!-- CSS Ku -->
-        <link rel="stylesheet" href="css/style.css" />
+        <link rel="stylesheet" href="../../css/style-beriulasan.css" />
     </head>
     <body>
-        <img src="assets/bg.png" style="z-index: -1; position: absolute; right: 0; top: -25px" />
+        <img src="../../assets/bg.png" style="z-index: -1; position: absolute; right: 0; top: -25px" />
         <!-- NAVBAR -->
         <nav class="navbar navbar-expand-lg bg-primary fixed-top">
             <div class="container">
-                <a href="#"><img src="assets/Logo.png" class="navbar-brand" style="height: 50px" /></a>
+                <a href="#"><img src="../../assets/Logo.png" class="navbar-brand" style="height: 50px" /></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -44,10 +44,10 @@
                     <span class="navbar-text">
                         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                             <li class="nav-item">
-                                <img src="assets/message.png" class="navbar-brand" style="height: 45px" />
+                                <img src="../../assets/message.png" class="navbar-brand" style="height: 45px" />
                             </li>
                             <li class="nav-item">
-                                <img src="assets/profile.png" class="navbar-brand" style="height: 40px" />
+                                <img src="../../assets/profile.png" class="navbar-brand" style="height: 40px" />
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link text-light fw-bolder">|</a>
@@ -55,7 +55,7 @@
                             <li class="nav-item">
                                 <a class="nav-link text-light" style="margin-right: 90px" href="#"
                                     >Logout
-                                    <img src="assets/sign.png" class="navbar-brand" style="height: 30px" />
+                                    <img src="../../assets/sign.png" class="navbar-brand" style="height: 30px" />
                                 </a>
                             </li>
                         </ul>
@@ -98,7 +98,7 @@
                         </div>
                         <div class="content-main d-flex flex-row mt-3 px-4 column-gap-4 ">
                             <div class="ulas-gambar-project">
-                                    <img src="assets/project1_.png" alt="" >
+                                    <img src="../../assets/project1_.png" alt="" >
                             </div>
                             <div class="form-ulas d-flex flex-column justify-content-evenly">
                                 <div class="judul-project">
@@ -141,7 +141,7 @@
                         </div>
                         <div class="content-main d-flex flex-row mt-3 px-4 column-gap-4 ">
                             <div class="ulas-gambar-project">
-                                    <img src="assets/project1_.png" alt="" >
+                                    <img src="../../assets/project1_.png" alt="" >
                             </div>
                             <div class="form-ulas d-flex flex-column justify-content-evenly">
                                 <div class="judul-project">
@@ -184,7 +184,7 @@
                         </div>
                         <div class="content-main d-flex flex-row mt-3 px-4 column-gap-4 ">
                             <div class="ulas-gambar-project">
-                                    <img src="assets/project1_.png" alt="" >
+                                    <img src="../../assets/project1_.png" alt="" >
                             </div>
                             <div class="form-ulas d-flex flex-column justify-content-evenly">
                                 <div class="judul-project">
@@ -227,7 +227,7 @@
                         </div>
                         <div class="content-main d-flex flex-row mt-3 px-4 column-gap-4 ">
                             <div class="ulas-gambar-project">
-                                    <img src="assets/project1_.png" alt="" >
+                                    <img src="../../assets/project1_.png" alt="" >
                             </div>
                             <div class="form-ulas d-flex flex-column justify-content-evenly">
                                 <div class="judul-project">
@@ -271,6 +271,6 @@
         <!-- AOS -->
         <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
         <!-- JAVASCRIPT Ku-->
-        <script src="js/script.js"></script>
+        <script src="../../js/script.js"></script>
     </body>
 </html>

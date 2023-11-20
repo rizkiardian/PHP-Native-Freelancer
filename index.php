@@ -1,39 +1,39 @@
 <?php
-session_start();
-if(isset($_SESSION["level"]))
-{
-    if ($_SESSION["level"] == "admin") {
-        $previous = $_SERVER["HTTP_REFERER"];
-        header("Location:/login-auth/admin");
+// session_start();
+// if(isset($_SESSION["level"]))
+// {
+//     if ($_SESSION["level"] == "admin") {
+//         $previous = $_SERVER["HTTP_REFERER"];
+//         header("Location:/login-auth/admin");
         
-    }else{
-        header("Location:/login-auth/user");
-    }
-}
+//     }else{
+//         header("Location:/login-auth/user");
+//     }
+// }
 
-$conn = mysqli_connect("localhost","root","","login-auth");
+// $conn = mysqli_connect("localhost","root","","login-auth");
 if(isset($_POST["submit"]))
 {
+        header("Location:view/homepage");
+//     $username = trim(htmlspecialchars($_POST["username"]));
+//     $password = trim(htmlspecialchars(md5($_POST["password"])));
 
-    $username = trim(htmlspecialchars($_POST["username"]));
-    $password = trim(htmlspecialchars(md5($_POST["password"])));
+//     // Cek Username dan Password Quary
+//     $check = mysqli_query($conn , "SELECT * FROM `user` WHERE usename = '$username' and password = '$password'")->fetch_assoc();
+//     if ($check != NULL){
 
-    // Cek Username dan Password Quary
-    $check = mysqli_query($conn , "SELECT * FROM `user` WHERE usename = '$username' and password = '$password'")->fetch_assoc();
-    if ($check != NULL){
-
-        if ($check["level"] == "2") {
-            $_SESSION["level"] = "admin";
-            header("Location:admin/index.php");
-        }else{
-            $_SESSION["level"] = "user";
-            header("Location:user/");
+//         if ($check["level"] == "2") {
+//             $_SESSION["level"] = "admin";
+//             header("Location:admin/index.php");
+//         }else{
+//             $_SESSION["level"] = "user";
+//             header("Location:user/");
             
-        }
+//         }
 
-    }else {
-        echo "<script>alert('password or usrname invalid'); </script>";
-    }
+//     }else {
+//         echo "<script>alert('password or usrname invalid'); </script>";
+//     }
 
 }
 ?>

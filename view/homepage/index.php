@@ -1,5 +1,5 @@
 <?php 
-
+require_once("../../models/freelanceModel.php");
 
 if (isset($_SESSION)) 
 {
@@ -7,6 +7,7 @@ if (isset($_SESSION))
 }else {
     if (isset($_POST["logout"])) {
         session_destroy();
+        header("Location:../../");
     }
 }
 ?>
@@ -72,7 +73,9 @@ if (isset($_SESSION))
                             <div class="pemisahLogin"></div>
                         </li>
                         <li class="nav-item">
-                            <button class="nav-link" aria-current="page" name="logout">Logout <i class="uil uil-signin"></i></button>
+                            <form action="<?= htmlspecialchars($_SERVER["PHP_SELF"]) ?>" method="post">
+                                <button class="nav-link" aria-current="page" name="logout">Logout <i class="uil uil-signin"></i></button>
+                            </form>
                         </li>
                         <?php
                             }else{
@@ -192,7 +195,7 @@ if (isset($_SESSION))
                     <div class="row">
                     </div>
                     <div class="row mt-5 justify-content-center align-items-center">
-                        <a class="col-md-3 col-sm-6 icon-wrapper" href="">
+                        <a class="col-md-3 col-sm-6 icon-wrapper" href="../tawaran-project">
                             <div class="row justify-content-center align-items-center"><img src="../../assets/icon/graphic-design.png" alt="" class="icon-kategori" /></div>
                             <div class="row justify-content-center">
                                 <div class="underline-kategori"></div>
@@ -200,21 +203,21 @@ if (isset($_SESSION))
                             <div class="row justify-content-center align-items-center mt-3">Graphics Design</div>
                         </a>
 
-                        <a href="" class="col-md-3 col-sm-6 icon-wrapper">
+                        <a href="../tawaran-project" class="col-md-3 col-sm-6 icon-wrapper">
                             <div class="row justify-content-center align-items-center"><img src="../../assets/icon/digital-marketing.png" alt="" class="icon-kategori" /></div>
                             <div class="row justify-content-center">
                                 <div class="underline-kategori"></div>
                             </div>
                             <div class="row justify-content-center align-items-center mt-3">Digital Marketing</div>
                         </a>
-                        <a href="" class="col-md-3 col-sm-6 icon-wrapper">
+                        <a href="../tawaran-project" class="col-md-3 col-sm-6 icon-wrapper">
                             <div class="row justify-content-center align-items-center"><img src="../../assets/icon/writing-translation.png" alt="" class="icon-kategori" /></div>
                             <div class="row justify-content-center">
                                 <div class="underline-kategori"></div>
                             </div>
                             <div class="row justify-content-center align-items-center mt-3">Writing & Translation</div>
                         </a>
-                        <a href="" class="col-md-3 col-sm-6 icon-wrapper">
+                        <a href="../tawaran-project" class="col-md-3 col-sm-6 icon-wrapper">
                             <div class="row justify-content-center align-items-center"><img src="../../assets/icon/video-animation.png" alt="" class="icon-kategori" /></div>
                             <div class="row justify-content-center">
                                 <div class="underline-kategori"></div>
@@ -223,28 +226,28 @@ if (isset($_SESSION))
                         </a>
                     </div>
                     <div class="row mt-5 justify-content-center align-items-center">
-                        <a href="" class="col-md-3 col-sm-6 icon-wrapper">
+                        <a href="../tawaran-project" class="col-md-3 col-sm-6 icon-wrapper">
                             <div class="row justify-content-center align-items-center"><img src="../../assets/icon/music-audio.png" alt="" class="icon-kategori" /></div>
                             <div class="row justify-content-center">
                                 <div class="underline-kategori"></div>
                             </div>
                             <div class="row justify-content-center align-items-center mt-3">Musik & Audio</div>
                         </a>
-                        <a href="" class="col-md-3 col-sm-6 icon-wrapper">
+                        <a href="../tawaran-project" class="col-md-3 col-sm-6 icon-wrapper">
                             <div class="row justify-content-center align-items-center"><img src="../../assets/icon/programming.png" alt="" class="icon-kategori" /></div>
                             <div class="row justify-content-center">
                                 <div class="underline-kategori"></div>
                             </div>
                             <div class="row justify-content-center align-items-center mt-3">Programming</div>
                         </a>
-                        <a href="" class="col-md-3 col-sm-6 icon-wrapper">
+                        <a href="../tawaran-project" class="col-md-3 col-sm-6 icon-wrapper">
                             <div class="row justify-content-center align-items-center"><img src="../../assets/icon/bussiness.png" alt="" class="icon-kategori" /></div>
                             <div class="row justify-content-center">
                                 <div class="underline-kategori"></div>
                             </div>
                             <div class="row justify-content-center align-items-center mt-3">Bussiness</div>
                         </a>
-                        <a href="" class="col-md-3 col-sm-6 icon-wrapper">
+                        <a href="../tawaran-project" class="col-md-3 col-sm-6 icon-wrapper">
                             <div class="row justify-content-center align-items-center"><img src="../../assets/icon/photography.png" alt="" class="icon-kategori" /></div>
                             <div class="row justify-content-center">
                                 <div class="underline-kategori"></div>
@@ -256,6 +259,7 @@ if (isset($_SESSION))
             </div>
         </div>
         <!-- Project Categories END-->
+        
         <?php
         if(isset($_SESSION)){
             require("models/freelanceModel.php");

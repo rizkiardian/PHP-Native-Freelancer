@@ -1,3 +1,7 @@
+<?php
+require_once("../../models/freelanceModel.php");
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -36,7 +40,7 @@
     <!-- NAVBAR -->
     <nav class="navbar navbar-expand-lg bg-primary fixed-top">
       <div class="container">
-        <a href="#"
+        <a href="../homepage/"
           ><img
             src="../../assets/logo/Logo.png"
             class="navbar-brand"
@@ -140,11 +144,17 @@
                 <label for="disabledSelect" class="form-label"
                   ><h6>Kategori :</h6></label
                 >
-                <select id="" class="dropdown-filter ms-3">
+                <select id="" class="dropdown-filter ms-3" name="kategori">
+
                   <option>Graphics & Design</option>
-                  <option>Voice Over</option>
+                  <option>Digital Marketing</option>
+                  <option>Writing & Translation</option>
+                  <option>Video & Animation</option>
+                  <option>Musik & Audio</option>
+                  <option>Programming</option>
+                  <option>Bussines</option>
                   <option>Photography</option>
-                  <option>AKU CINTA FREYA JKT48</option>
+                  
                 </select>
               </div>
             </div>
@@ -160,6 +170,10 @@
           class="d-flex flex-row column-gap-3 flex-wrap justify-content-start"
         >
           <!-- CARD ITEM -->
+          <?php
+          $daftarProject = mysqli_query($conn,"SELECT pr.* , kr.nama_kategori , umkm.nama_perusahaan FROM `pekerjaan_request` pr JOIN kategori_request kr ON id = id_kategori INNER JOIN umkm WHERE id_user = id_umkm")->fetch_assoc();
+          while ($daftarProject) {
+          ?>
           <div
             class="card p-3 mb-3"
             style="width: 14rem"
@@ -167,21 +181,23 @@
             data-aos-duration="1500"
           >
             <img
-              src="../../assets/project.png"
+              src="<?= $daftarProject["foto"] ?>"
               class="card-img-top"
               alt="..."
             />
             <div class="card-body">
-              <h5 class="card-title" style="color: #042672">Design Interior</h5>
+              <h5 class="card-title" style="color: #042672"></h5>
               <p class="card-text" style="font-size: 14px">
-                Request by:<br />Gibran Rakabuming
+                Request by:<br /><?= $daftarProject["nama_perusahaan"] ?>
               </p>
-              <p class="card-text">Rp. 1000.000,-</p>
-              <a href="detilTawaran.html" class="btn btn-primary"
+              <p class="card-text"><?= $daftarProject["harga"] ?></p>
+              <a href="detilTawaran.php?id=<?= $daftarProject['id_pekerjaan'] ?>" class="btn btn-primary"
                 >View Detail</a
               >
             </div>
           </div>
+          <?php }?>
+          <!-- START DUMB CARD -->
           <div
             class="card p-3 mb-3"
             style="width: 14rem"
@@ -199,7 +215,7 @@
                 Request by:<br />Gibran Rakabuming
               </p>
               <p class="card-text">Rp. 1000.000,-</p>
-              <a href="detilTawaran.html" class="btn btn-primary"
+              <a href="detilTawaran.php" class="btn btn-primary"
                 >Lihat Detail</a
               >
             </div>
@@ -221,7 +237,7 @@
                 Request by:<br />Gibran Rakabuming
               </p>
               <p class="card-text">Rp. 1000.000,-</p>
-              <a href="detilTawaran.html" class="btn btn-primary"
+              <a href="detilTawaran.php" class="btn btn-primary"
                 >Lihat Detail</a
               >
             </div>
@@ -243,7 +259,7 @@
                 Request by:<br />Gibran Rakabuming
               </p>
               <p class="card-text">Rp. 1000.000,-</p>
-              <a href="detilTawaran.html" class="btn btn-primary"
+              <a href="detilTawaran.php" class="btn btn-primary"
                 >Lihat Detail</a
               >
             </div>
@@ -265,7 +281,7 @@
                 Request by:<br />Gibran Rakabuming
               </p>
               <p class="card-text">Rp. 1000.000,-</p>
-              <a href="detilTawaran.html" class="btn btn-primary"
+              <a href="detilTawaran.php" class="btn btn-primary"
                 >Lihat Detail</a
               >
             </div>
@@ -287,7 +303,7 @@
                 Request by:<br />Gibran Rakabuming
               </p>
               <p class="card-text">Rp. 1000.000,-</p>
-              <a href="detilTawaran.html" class="btn btn-primary"
+              <a href="detilTawaran.php" class="btn btn-primary"
                 >Lihat Detail</a
               >
             </div>
@@ -309,7 +325,7 @@
                 Request by:<br />Gibran Rakabuming
               </p>
               <p class="card-text">Rp. 1000.000,-</p>
-              <a href="detilTawaran.html" class="btn btn-primary"
+              <a href="detilTawaran.php" class="btn btn-primary"
                 >Lihat Detail</a
               >
             </div>
@@ -331,7 +347,7 @@
                 Request by:<br />Gibran Rakabuming
               </p>
               <p class="card-text">Rp. 1000.000,-</p>
-              <a href="detilTawaran.html" class="btn btn-primary"
+              <a href="detilTawaran.php" class="btn btn-primary"
                 >Lihat Detail</a
               >
             </div>
@@ -353,7 +369,7 @@
                 Request by:<br />Gibran Rakabuming
               </p>
               <p class="card-text">Rp. 1000.000,-</p>
-              <a href="detilTawaran.html" class="btn btn-primary"
+              <a href="detilTawaran.php" class="btn btn-primary"
                 >Lihat Detail</a
               >
             </div>
@@ -375,11 +391,12 @@
                 Request by:<br />Gibran Rakabuming
               </p>
               <p class="card-text">Rp. 1000.000,-</p>
-              <a href="detilTawaran.html" class="btn btn-primary"
+              <a href="detilTawaran.php" class="btn btn-primary"
                 >Lihat Detail</a
               >
             </div>
           </div>
+            <!-- END DUMB CARD -->
 
           <!-- CARD ITEM END-->
         </div>

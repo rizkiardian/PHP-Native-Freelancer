@@ -3,14 +3,16 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Tawaran Project | Nganggur</title>
+    <title>Beri Ulasan | Nganggur</title>
     <!-- FAVICON -->
-    <link rel="icon" type="image/x-icon" href="../../assets/logo/Logo.png" />
+    <link rel="icon" type="image/x-icon" href="img/Logo.png" />
     <!-- ICON -->
     <link
       rel="stylesheet"
       href="https://unicons.iconscout.com/release/v4.0.8/css/line.css"
     />
+    <!-- icon Web -->
+    <link rel="icon" type="image/x-icon" href="../../assets/logo/Logo.png" />
     <!-- Bootstrap -->
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
@@ -26,7 +28,7 @@
     <!-- AOS -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
     <!-- CSS Ku -->
-    <link rel="stylesheet" href="../../css/style.css" />
+    <link rel="stylesheet" href="../../css/style-lihatulasan.css" />
   </head>
   <body>
     <img
@@ -36,7 +38,7 @@
     <!-- NAVBAR -->
     <nav class="navbar navbar-expand-lg bg-primary fixed-top">
       <div class="container">
-        <a href="#"
+        <a href="../homepage"
           ><img
             src="../../assets/Logo.png"
             class="navbar-brand"
@@ -114,7 +116,7 @@
       <div class="row">
         <div class="col">
           <div class="page-tittle">
-            <h2>Tawaran Project</h2>
+            <h2>Ulasan</h2>
           </div>
         </div>
       </div>
@@ -131,14 +133,30 @@
         >
           <h5 class="align-items-center">Daftar Project</h5>
         </div>
-        <div class="row mt-3 mb-2">
+        <div class="row mt-5 mb-5">
           <div class="col">
             <div
-              class="d-flex flex-row align-items-center justify-content-between tombol-kembali"
+              class="d-flex flex-row align-items-center justify-content-between"
             >
-              <a href="tawaran.html"
-                ><p><i class="uil uil-angle-left"></i> Kembali</p></a
-              >
+              <div class="filter">
+                <label for="disabledSelect" class="form-label"
+                  ><h6>Filter :</h6></label
+                >
+                <select id="" class="dropdown-filter ms-3">
+                  <option>1 Minggu terakhir</option>
+                  <option>1 Minggu terakhir</option>
+                  <option>1 Minggu terakhir</option>
+                  <option>1 Minggu terakhir</option>
+                </select>
+              </div>
+
+              <div class="search">
+                <input
+                  type="text"
+                  class="search-box"
+                  placeholder="Search by Invoice / Project / Talent"
+                />
+              </div>
             </div>
           </div>
         </div>
@@ -154,101 +172,51 @@
                 <p class="tgl-pesanan">Pesanan diterima: 22 Okt 2023</p>
               </div>
               <div class="content-main d-flex flex-row mt-3 px-4 column-gap-4">
-                <img src="../../assets/project.png" alt="" />
-                <div class="d-flex flex-column justify-content-center">
-                  <h4 class="mb-4">Design Interior</h4>
-                  <div class="keterangan-singkat">
-                    <table>
-                      <tr>
-                        <td>Client</td>
-                        <td class="px-4">:</td>
-                        <td>Gibran Rakabuming</td>
-                      </tr>
-                      <tr>
-                        <td>Kategori</td>
-                        <td class="px-4">:</td>
-                        <td>Design</td>
-                      </tr>
-                      <tr>
-                        <td>Budget</td>
-                        <td class="px-4">:</td>
-                        <td>Rp. 1000.000,-</td>
-                      </tr>
-                      <tr>
-                        <td>Waktu</td>
-                        <td class="px-4">:</td>
-                        <td>10 hari</td>
-                      </tr>
-                    </table>
+                <div class="ulas-gambar-project">
+                  <img src="../../assets/project1_.png" alt="" />
+                </div>
+                <div
+                  class="form-ulas d-flex flex-column justify-content-evenly"
+                >
+                  <div class="judul-project">
+                    <div class="row">
+                      <div class="col-10">
+                        <h6 style="font-size: 24px">
+                          Design 3D Animation Logo for Youtube | 3D Blender
+                        </h6>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col">
+                        <p style="color: black">
+                          Bagaimana kualitas project secara keseluruhan?
+                        </p>
+                        <p class="rating-bintang">
+                          <i class="uil uil-star"></i>
+                          <i class="uil uil-star"></i>
+                          <i class="uil uil-star"></i>
+                          <i class="uil uil-star"></i>
+                          <i class="uil uil-star me-2"></i>
+                          Sangat Baik
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="">
+                    <a href="lihatUlasan.php" class="btn btn-primary"
+                      >Lihat Ulasan</a
+                    >
                   </div>
                 </div>
               </div>
-              <div class="d-flex flex-column align-items-center">
-                <div class="deskripsi-project m-3">
-                  <div class="deskripsi-singkat">
-                    <h6>Deskripsi Singkat</h6>
-                    <p>
-                      Project desain interior adalah usaha untuk menciptakan
-                      lingkungan yang estetis dan fungsional di dalam suatu
-                      ruang. Melibatkan perencanaan dan implementasi
-                      elemen-elemen seperti pemilihan warna, perabotan,
-                      pencahayaan, dan dekorasi untuk menciptakan ruang yang
-                      nyaman dan sesuai dengan kebutuhan klien.
-                    </p>
-                  </div>
-                  <div class="tujuan">
-                    <h6>Tujuan</h6>
-                    <ul>
-                      <li>
-                        Fungsionalitas: Desain interior harus mengoptimalkan
-                        penggunaan ruang dan mempertimbangkan kebutuhan
-                        sehari-hari kami.
-                      </li>
-                      <li>
-                        Estetika: Kami menginginkan ruangan yang indah secara
-                        visual, dengan perpaduan warna, tekstur, dan elemen
-                        dekoratif yang harmonis.
-                      </li>
-                      <li>
-                        Gaya Hidup: Desain harus mencerminkan gaya hidup kami
-                        yang aktif dan dinamis, dengan ruang yang cocok untuk
-                        bekerja, bersantai, dan bersosialisasi.
-                      </li>
-                    </ul>
-                  </div>
-                  <div class="ketentuan">
-                    <h6>Ketentuan</h6>
-                    <ul>
-                      <li>
-                        Proses dimulai dengan konsultasi awal untuk memahami
-                        kebutuhan dan preferensi kami.
-                      </li>
-                      <li>
-                        Setelah konsultasi, harap ajukan proposal konsep yang
-                        mencakup ide-ide desain, pemilihan warna, dan pemilihan
-                        material.
-                      </li>
-                      <li>
-                        Kami berharap ada kesempatan untuk merevisi proposal
-                        berdasarkan umpan balik kami sebelum melanjutkan ke
-                        tahap implementasi.
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-              <div class="d-flex flex-row justify-content-end m-4">
-                <button class="btn btn-danger mx-3">Tolak Tawaran</button>
-                <button class="btn btn-primary">Ambil Project</button>
-              </div>
-              <br /><br /><br />
             </div>
           </div>
-
           <!-- END PROJECT WRAP -->
+          <br /><br /><br /><br /><br />
         </div>
       </div>
     </div>
+
     <!-- PROJECT SELESAI END -->
 
     <!-- SWIPER JS -->

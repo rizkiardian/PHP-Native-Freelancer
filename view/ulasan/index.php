@@ -124,7 +124,7 @@
                                                 <h6>Design 3D Animation Logo for Youtube | 3D Blender</h6>
                                                 <p>Belum diulas</p>
                                             </div>
-                                            <a href="beriulasan.html" class="d-flex justify-content-center align-items-center">Beri ulasan</a>
+                                            <a href="beriulasan.php" class="d-flex justify-content-center align-items-center">Beri ulasan</a>
                                         </div>
                                     </div>
                                 </div>
@@ -157,7 +157,7 @@
                                                 <h6>Design 3D Animation Logo for Youtube | 3D Blender</h6>
                                                 <p>Belum diulas</p>
                                             </div>
-                                            <a href="beriulasan.html" class="d-flex justify-content-center align-items-center">Beri ulasan</a>
+                                            <a href="beriulasan.php" class="d-flex justify-content-center align-items-center">Beri ulasan</a>
                                         </div>
                                     </div>
                                 </div>
@@ -190,7 +190,7 @@
                                                 <h6>Design 3D Animation Logo for Youtube | 3D Blender</h6>
                                                 <p>Belum diulas</p>
                                             </div>
-                                            <a href="beriulasan.html" class="d-flex justify-content-center align-items-center">Beri ulasan</a>
+                                            <a href="beriulasan.php" class="d-flex justify-content-center align-items-center">Beri ulasan</a>
                                         </div>
                                     </div>
                                 </div>
@@ -223,7 +223,7 @@
                                                 <h6>Design 3D Animation Logo for Youtube | 3D Blender</h6>
                                                 <p>Belum diulas</p>
                                             </div>
-                                            <a href="beriulasan.html" class="d-flex justify-content-center align-items-center">Beri ulasan</a>
+                                            <a href="beriulasan.php" class="d-flex justify-content-center align-items-center">Beri ulasan</a>
                                         </div>
                                     </div>
                                 </div>

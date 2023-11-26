@@ -1,14 +1,14 @@
 <?php 
-$conn = mysqli_connect("localhost","root","","db_freelance");
+require_once ("../../models/freelanceModel.php");
 
 $selectedCategory = isset($_GET['kategori']) ? $_GET['kategori'] : '1';
 
-$sql = "SELECT * FROM project INNER JOIN kategori USING(idKategori)";
+$sql = "SELECT * FROM pekerjaan_request INNER JOIN kategori_request";
 if (!empty($selectedCategory)) {
-    $sql .= " WHERE idKategori = '$selectedCategory'";
+    $sql .= " WHERE id_kategori = $selectedCategory";
 }
 
-$kategori = mysqli_query($conn, "SELECT kategori FROM kategori WHERE idKategori = '$selectedCategory'");
+$kategori = mysqli_query($conn, "SELECT nama_kategori FROM kategori_request WHERE id = $selectedCategory");
 $namaKategori = mysqli_fetch_assoc($kategori);
 
 $result = $conn->query($sql);
@@ -30,7 +30,7 @@ if ($result->num_rows > 0) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <title>Tawaran Project | Nganggur</title>
         <!-- FAVICON -->
-        <link rel="icon" type="image/x-icon" href="img/Logo.png" />
+        <link rel="icon" type="image/x-icon" href="../../assets/logo/Logo.png" />
         <!-- ICON -->
         <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css" />
         <!-- Bootstrap -->
@@ -40,14 +40,14 @@ if ($result->num_rows > 0) {
         <!-- AOS -->
         <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
         <!-- CSS Ku -->
-        <link rel="stylesheet" href="css/style.css" />
+        <link rel="stylesheet" href="../../css/style.css" />
     </head>
     <body>
-        <img src="assets/bg.png" style="z-index: -1; position: absolute; right: 0; top: -25px" />
+        <img src="../../assets/bg.png" style="z-index: -1; position: absolute; right: 0; top: -25px" />
         <!-- NAVBAR -->
         <nav class="navbar navbar-expand-lg bg-primary fixed-top">
             <div class="container">
-                <a href="#"><img src="assets/Logo.png" class="navbar-brand" style="height: 50px" /></a>
+                <a href="#"><img src="../../assets/Logo.png" class="navbar-brand" style="height: 50px" /></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -69,10 +69,10 @@ if ($result->num_rows > 0) {
                     <span class="navbar-text">
                         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                             <li class="nav-item">
-                                <img src="assets/message.png" class="navbar-brand" style="height: 45px" />
+                                <img src="../../assets/message.png" class="navbar-brand" style="height: 45px" />
                             </li>
                             <li class="nav-item">
-                                <img src="assets/profile.png" class="navbar-brand" style="height: 40px" />
+                                <img src="../../assets/profile.png" class="navbar-brand" style="height: 40px" />
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link text-light fw-bolder">|</a>
@@ -80,7 +80,7 @@ if ($result->num_rows > 0) {
                             <li class="nav-item">
                                 <a class="nav-link text-light" style="margin-right: 90px" href="#"
                                     >Logout
-                                    <img src="assets/sign.png" class="navbar-brand" style="height: 30px" />
+                                    <img src="../../assets/sign.png" class="navbar-brand" style="height: 30px" />
                                 </a>
                             </li>
                         </ul>
@@ -125,7 +125,7 @@ if ($result->num_rows > 0) {
                 </div>
 
                 <!-- KATEGORI NAME -->
-                <h3 class="mb-4"><?= $namaKategori['kategori']?></h3>
+                <h3 class="mb-4"><?= $namaKategori['nama_kategori']?></h3>
                 <!-- KATEGORI NAME END -->
 
                 <!-- CARD TAWARAN -->
@@ -134,12 +134,12 @@ if ($result->num_rows > 0) {
                 <?php foreach ($projects as $project) { ?>
                     <!-- CARD ITEM -->
                     <div class="card p-3 mb-3" style="width: 14rem" data-aos="fade-up" data-aos-duration="1500">
-                        <img src="assets/<?= $project['gambar'] ?>" class="card-img-top" alt="..." style="width:190px;height:172.5px;" />
+                        <img src="../../assets/<?= $project['kategori'] ?>" class="card-img-top" alt="..." style="width:190px;height:172.5px;" />
                         <div class="card-body">
-                            <h5 class="card-title" style="color: #042672"><?= $project['judul'] ?></h5>
-                            <p class="card-text" style="font-size: 14px">Tenggat : <?=date('d M Y', strtotime($project['tenggat']));?></p>
-                            <p class="card-text">Rp. <?= number_format($project['budget'],0,",",".");?>,-</p>
-                            <a href="detilTawaran.php?id=<?= $project['idProject'] ?>" class="btn btn-primary">View Detail</a>
+                            <h5 class="card-title" style="color: #042672"><?= $project['nama_pekerjaan'] ?></h5>
+                            <p class="card-text" style="font-size: 14px">Tenggat : <?=date('d M Y', strtotime($project['batas_waktu']));?></p>
+                            <p class="card-text">Rp. <?= number_format($project['harga'],0,",",".");?>,-</p>
+                            <a href="detilTawaran.php?id=<?= $project['id_pekerjaan'] ?>" class="btn btn-primary">View Detail</a>
                         </div>
                     </div>
                     <!-- CARD ITEM END-->
@@ -161,6 +161,6 @@ if ($result->num_rows > 0) {
         <!-- AOS -->
         <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
         <!-- JAVASCRIPT Ku-->
-        <script src="js/script.js"></script>
+        <script src="../../js/script.js"></script>
     </body>
 </html>

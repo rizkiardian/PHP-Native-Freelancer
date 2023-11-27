@@ -1,7 +1,7 @@
 <?php 
-require_once("../../../models/freelanceModel.php");
 $id = $_GET["id"];
-$query = "SELECT * FROM pekerjaan_request INNER JOIN kategori_request ON id = id_kategori JOIN umkm ON id_umkm = id_user WHERE id_pekerjaan = $id";
+$conn = mysqli_connect("localhost","root","","freelance");
+$query = "SELECT * FROM project INNER JOIN kategori USING(idKategori) WHERE idProject = '$id'";
 $result = mysqli_query($conn, $query);
 
 $data = mysqli_fetch_assoc($result);
@@ -25,14 +25,14 @@ $data = mysqli_fetch_assoc($result);
         <!-- AOS -->
         <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
         <!-- CSS Ku -->
-        <link rel="stylesheet" href="../../../css/style-detil-tawaran.css" />
+        <link rel="stylesheet" href="css/style.css" />
     </head>
     <body>
-        <img src="../../../assets/bg.png" style="z-index: -1; position: absolute; right: 0; top: -25px" />
+        <img src="assets/bg.png" style="z-index: -1; position: absolute; right: 0; top: -25px" />
         <!-- NAVBAR -->
         <nav class="navbar navbar-expand-lg bg-primary fixed-top">
             <div class="container">
-                <a href="#"><img src="../../../assets/Logo.png" class="navbar-brand" style="height: 50px" /></a>
+                <a href="#"><img src="assets/Logo.png" class="navbar-brand" style="height: 50px" /></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -54,10 +54,10 @@ $data = mysqli_fetch_assoc($result);
                     <span class="navbar-text">
                         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                             <li class="nav-item">
-                                <img src="../../../assets/message.png" class="navbar-brand" style="height: 45px" />
+                                <img src="assets/message.png" class="navbar-brand" style="height: 45px" />
                             </li>
                             <li class="nav-item">
-                                <img src="../../../assets/profile.png" class="navbar-brand" style="height: 40px" />
+                                <img src="assets/profile.png" class="navbar-brand" style="height: 40px" />
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link text-light fw-bolder">|</a>
@@ -65,7 +65,7 @@ $data = mysqli_fetch_assoc($result);
                             <li class="nav-item">
                                 <a class="nav-link text-light" style="margin-right: 90px" href="#"
                                     >Logout
-                                    <img src="../../../assets/sign.png" class="navbar-brand" style="height: 30px" />
+                                    <img src="assets/sign.png" class="navbar-brand" style="height: 30px" />
                                 </a>
                             </li>
                         </ul>
@@ -103,33 +103,34 @@ $data = mysqli_fetch_assoc($result);
                     <div class="col">
                         <div class="project-wrapper d-flex flex-column shadow-sm">
                             <div class="tgl-invoice d-flex flex-row justify-content-between pt-3 px-3">
+                                <p class="invoice">Freelancer : <?= $data['freelancer']?> </p>
                                 
                             </div>
                             <div class="content-main d-flex flex-row mt-3 px-4 column-gap-4">
-                                <img style="width:230px;height:210px;border-radius:10px;" src="../../../assets/kategori/<?=($data != NULL) ? $data['nama_kategori'] : ""?>" alt=""/>
+                                <img style="width:230px;height:210px;border-radius:10px;" src="assets/<?=$data['gambar']?>" alt=""/>
                                 <div class="d-flex flex-column justify-content-center">
-                                    <h4 class="mb-4"><?= ($data != NULL) ? $data['nama_pekerjaan'] : "Design Interior"?></h4>
+                                    <h4 class="mb-4"><?= $data['judul']?></h4>
                                     <div class="keterangan-singkat">
                                         <table>
                                             <tr>
                                                 <td>Client</td>
                                                 <td class="px-4">:</td>
-                                                <td><?= ($data != NULL) ? $data['client'] : ""?></td>
+                                                <td><?= $data['client']?></td>
                                             </tr>
                                             <tr>
                                                 <td>Kategori</td>
                                                 <td class="px-4">:</td>
-                                                <td><?= ($data != NULL) ? $data['kategori'] : ""?></td>
+                                                <td><?= $data['kategori']?></td>
                                             </tr>
                                             <tr>
                                                 <td>Budget</td>
                                                 <td class="px-4">:</td>
-                                                <td>Rp. <?= ($data != NULL) ? number_format($data['budget'],0,",",".") : "";?>,-</td>
+                                                <td>Rp. <?= number_format($data['budget'],0,",",".");?>,-</td>
                                             </tr>
                                             <tr>
                                                 <td>Tenggat</td>
                                                 <td class="px-4">:</td>
-                                                <td><?= ($data != NULL) ? date('d M Y', strtotime($data['tenggat'])) : "";?></td>
+                                                <td><?= date('d M Y', strtotime($data['tenggat']));?></td>
                                             </tr>
                                         </table>
                                     </div>
@@ -140,20 +141,20 @@ $data = mysqli_fetch_assoc($result);
                                     <div class="deskripsi-singkat">
                                         <h6>Deskripsi Singkat</h6>
                                         <p>
-                                            <?= ($data != NULL) ? $data['deskripsi'] : ""?>
+                                            <?= $data['deskripsi']?>
                                         </p>
                                     </div>
                                     <div class="tujuan">
                                         <h6>Tujuan</h6>
                                         <p>
-                                            <?= ($data != NULL) ? $data['tujuan'] : ""?>
+                                            <?= $data['tujuan']?>
                                         </p>
                                     </div>
                                     <div class="ketentuan">
                                         <h6>Ketentuan</h6>
                                         
                                         <p>
-                                            <?= ($data != NULL) ? $data['ketentuan'] : ""?>
+                                            <?= $data['ketentuan']?>
                                         </p>
                                     </div>
                                 </div>
@@ -179,6 +180,6 @@ $data = mysqli_fetch_assoc($result);
         <!-- AOS -->
         <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
         <!-- JAVASCRIPT Ku-->
-        <script src="../../../js/script.js"></script>
+        <script src="js/script.js"></script>
     </body>
 </html>

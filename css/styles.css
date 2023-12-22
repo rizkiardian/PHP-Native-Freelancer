@@ -1,0 +1,52 @@
+:root {
+  --bs-blue: #2A77F8;
+  --bs-primary: #2A77F8;
+  --bs-link-color: #2A77F8;
+  --bs-link-hover-color: #002C91;
+  --bs-font-sans-serif: "Poppins";
+  --bs-blue-dark: #0F2048;
+  --bs-success-highlight: #a2ffd4;
+}
+
+.form-control-SignInPage {
+  display: block;
+  width: 100%;
+  padding: 0.3rem .75rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #212529;
+  background-color: #fff;
+}
+
+.form-control-SignInPage:focus-visible {
+  outline: none;
+}
+
+#Password-Container {
+  position: relative;
+}
+
+.valid {
+  display: none;
+}
+
+.popup-success {
+  visibility: hidden;
+}
+
+.popup-success.show {
+  visibility: visible;
+  -webkit-animation: fadeIn 1s;
+  animation: fadeIn 1s;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+

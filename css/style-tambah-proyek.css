@@ -1,0 +1,231 @@
+/* GOOGLE FONTS */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
+
+/* VARIABLES CSS */
+:root {
+  --header-height: 3rem;
+
+  /* COLORS */
+  /* Change Favorite Colors */
+
+  --putih: #f5f9fc;
+  --biru-tua: #042672;
+  --biru-muda: #5191ff;
+  --biru-muda-sekali: #c5d6ff;
+  --abu-abu: #9d9d9d;
+
+  /* FONTS and TYPOGRAPHY */
+  --body-font: "Poppins", sans-serif;
+
+  /* .5rem = 8px, 1rem = 16px, 1.5rem = 24px,... */
+  /* Font Size */
+  --big-font-size: 2rem;
+  --h1-font-size: 1.5rem;
+  --h2-font-size: 1.25rem;
+  --h3-font-size: 1.125rem;
+  --normal-font-size: 0.938rem;
+  --small-font-size: 0.813rem;
+  --smaller-font-size: 0.75rem;
+
+  /* Font Weight */
+  --font-light: 100;
+  --font-medium: 500;
+  --font-semi-bold: 600;
+
+  /* MARGIN BOTTOM */
+  --mb-0-25: 0.25rem;
+  --mb-0-5: 0.5rem;
+  --mb-0-75: 0.75rem;
+  --mb-1: 1rem;
+  --mb-1-5: 1.5rem;
+  --mb-2: 2rem;
+  --mb-2-5: 2.5rem;
+  --mb-3: 3rem;
+
+  /* Z-INDEX */
+  --z-tooltip: 10;
+  --z-fixed: 100;
+  --z-modal: 1000;
+}
+
+/* Font Size for Large Device */
+@media screen and (min-width: 968px) {
+  :root {
+    --big-font-size: 3rem;
+    --h1-font-size: 2.25rem;
+    --h2-font-size: 1.5rem;
+    --h3-font-size: 1.25rem;
+    --normal-font-size: 1rem;
+    --small-font-size: 0.875rem;
+    --smaller-font-size: 0.813rem;
+  }
+}
+
+/* BASE */
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0 0 var(--header-height) 0;
+  font-family: var(--body-font);
+  font-size: var(--normal-font-size);
+  background-color: var(--putih);
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-weight: var(--font-medium);
+}
+
+/* NAVBAR */
+.logoImg {
+  width: 80%;
+}
+
+.navbar {
+  background-color: var(--biru-muda);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+  transition: all 0.5s;
+}
+
+.aksenImg {
+  position: absolute;
+  right: 0;
+  transform: translateY(-100px);
+  border: var(--biru-muda) 2px;
+  z-index: -1;
+}
+
+::-webkit-scrollbar {
+  width: 0.5rem;
+  background-color: var(--biru-muda-sekali);
+  border-radius: 0.5rem;
+  display: none;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--biru-muda);
+  border-radius: 0.4rem;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--biru-tua);
+}
+
+.content-wrapper {
+  border: 3px solid var(--abu-abu);
+  background-color: var(--putih);
+  border-radius: 20px;
+  height: 100vh;
+}
+
+.dropdown-filter {
+  padding: 10px;
+  border-radius: 5px;
+  width: 400px;
+  height: 50px;
+  border: 1px solid var(--abu-abu);
+}
+
+.search-box {
+  padding: 10px;
+  border-radius: 5px;
+  width: 400px;
+  height: 50px;
+  border: 1px solid var(--abu-abu);
+}
+
+.project-wrapper {
+  border: 2px solid var(--abu-abu);
+  border-radius: 10px;
+  height: fit-content;
+}
+
+.tgl-invoice {
+  background-color: var(--biru-muda);
+  color: var(--putih);
+  box-sizing: border-box;
+  border-radius: 10px 10px 0 0;
+}
+
+.project-wrapper img.avatar-freelancer {
+  width: 80px;
+  height: 80px;
+}
+
+.role {
+  width: fit-content;
+  padding: 5px 15px;
+  height: 30px;
+  border-radius: 5px;
+  background-color: var(--biru-muda);
+  color: var(--putih);
+  box-sizing: border-box;
+}
+
+.line-project-card {
+  width: 3px;
+  height: 270px;
+  background-color: var(--abu-abu);
+  margin-left: 200px;
+}
+
+.project-wrapper img.gambarProject {
+  width: 280px;
+  height: 200px;
+}
+
+.judul-project h6 {
+  color: var(--biru-tua);
+  font-size: larger;
+}
+
+.judul-project p {
+  color: var(--abu-abu);
+}
+
+.judul-project button.button-view{
+  border-radius: 10px;
+  width: 150px;
+  height: 40px;
+  background-color: var(--biru-muda);
+  border: none;
+  transition: 0.3s;
+}
+
+.judul-project button.lihat-ulasan {
+  border-radius: 10px;
+  width: 150px;
+  height: 40px;
+  background-color: #D4DFF1;
+  color: var(--biru-tua);
+  border: none;
+  transition: 0.3s;
+}
+
+.judul-project button.button-view a{
+  text-decoration: none;
+  color: var(--putih);
+}
+
+.card text{
+  height: fit-content;
+  width: fit-content;
+}
+label {
+    color: #000000;
+    font-size: large;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-weight: bold;
+    display: block;
+  }
+label:after { content: " : " }

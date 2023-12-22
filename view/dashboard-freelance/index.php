@@ -11,80 +11,11 @@
   </head>
   <?php
 require("../../models/freelanceModel.php");
+session_start();
 ?>
   <body>
     <!-- =============== Navigation ================ -->
-    <div class="container">
-      <div class="navigation">
-        <ul>
-          <li>
-            <a href="../homepage"
-              ><img class="logoImg" src="../../assets/logo/Logo.png" alt=""
-            /></a>
-          </li>
-          <li>
-            <a href="../homepage/">
-              <span class="icon">
-                <ion-icon name="home-outline"></ion-icon>
-              </span>
-              <span class="title">Home</span>
-            </a>
-          </li>
-          <li>
-            <a href="#">
-              <span class="icon">
-                <ion-icon name="bar-chart-outline"></ion-icon>
-              </span>
-              <span class="title">Dashboard</span>
-            </a>
-          </li>
-
-          <li>
-            <a href="#">
-              <span class="icon">
-                <ion-icon name="briefcase-outline"></ion-icon>
-              </span>
-              <span class="title">Projek Yang Ditawarkan</span>
-            </a>
-          </li>
-
-          <li>
-            <a href="#">
-              <span class="icon">
-                <ion-icon name="cart-outline"></ion-icon>
-              </span>
-              <span class="title">Orders</span>
-            </a>
-          </li>
-
-          <li>
-            <a href="#">
-              <span class="icon">
-                <ion-icon name="people-outline"></ion-icon>
-              </span>
-              <span class="title">Customers</span>
-            </a>
-          </li>
-
-          <li>
-            <a href="#">
-              <span class="icon">
-                <ion-icon name="chatbubble-outline"></ion-icon>
-              </span>
-              <span class="title">Messages</span>
-            </a>
-          </li>
-
-          <li>
-            <a href="#">
-              <span class="icon">
-                <ion-icon name="log-out-outline"></ion-icon>
-              </span>
-              <span class="title">Sign Out</span>
-            </a>
-          </li>
-        </ul>
-      </div>
+    <?php include("component/side_bar.php"); ?>
 
       <!-- ========================= Main ==================== -->
       <div class="main">
@@ -141,7 +72,16 @@ require("../../models/freelanceModel.php");
 
           <div class="card">
             <?php
-                        $penghasilandata = mysqli_query($conn, "SELECT sum(penghasilan.pemasukan) FROM penghasilan INNER JOIN pembayaran ON penghasilan.id_pembayaran = pembayaran.id_pembayaran INNER JOIN menawarkan_jasa ON menawarkan_jasa.id_menawar = pembayaran.id_pekerjaan WHERE penghasilan.status = 'lunas'  AND menawarkan_jasa.id_menawar = 1");
+                        $penghasilandata = mysqli_query($conn, "SELECT 
+                        SUM(pr.harga)
+                      FROM 
+                        `pekerjaan_request` pr
+                      JOIN
+                        `pekerja_jasa` pj
+                      ON
+                        pr.id_pekerja_jasa = pj.id_user
+                      WHERE 
+                        pj.email='{$_SESSION['email']}' AND pr.status='selesai'");
                         $penghasilan = mysqli_fetch_array($penghasilandata) 
                     ?>
             <div>

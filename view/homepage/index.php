@@ -1,11 +1,20 @@
 <?php 
-require_once("../../models/freelanceModel.php");
+require_once("../../controller/homepageController.php");
 
-if (isset($_SESSION)) 
+session_start();
+
+if (!isset($_SESSION["level"])) {
+    header("Location:../../");
+}
+
+if (!isset($_SESSION)) 
 {
-    header("Location:login.php");
+    header("Location:../../");
 }else {
     if (isset($_POST["logout"])) {
+        echo "<script>
+        alert('Selamat kamu berhasil logout kak ".$_SESSION["username"]."');
+        </script>";
         session_destroy();
         header("Location:../../");
     }
@@ -32,71 +41,9 @@ if (isset($_SESSION))
         <link rel="stylesheet" href="../../css/style.css" />
     </head>
     <body>
-        <!-- NAVBAR -->
-        <nav class="navbar navbar-expand-lg fixed-top navbar-dark">
-            <div class="container">
-                <a class="navbar-brand" href="#"><img class="logoImg" src="../../assets/logo/Logo.png" alt="" /></a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Portofolio</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Testimoni</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Cara Kerja</a>
-                        </li>
-                    </ul>
-                    <ul class="navbar-nav ms-auto">
-                        <?php 
-                            if (!isset($_SESSION)) // Cek apakah session sudah di inisiasi
-                            {
-                        ?>
-                        <li class="nav-item">
-                            <div class="dropdown">
-                                <button class="nav-link" aria-current="page" data-bs-toggle="dropdown" aria-expanded="false">Profile <i class="uil uil-signin"></i></button>
-                                <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="#">Edit Profile</a></li>
-                                    <li><a class="dropdown-item" href="../dashboard-freelance">Dashboard</a></li>
-                                    <li><a class="dropdown-item" href="#"></a></li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li class="nav-item mx-3 mt-2">
-                            <div class="pemisahLogin"></div>
-                        </li>
-                        <li class="nav-item">
-                            <form action="<?= htmlspecialchars($_SERVER["PHP_SELF"]) ?>" method="post">
-                                <button class="nav-link" aria-current="page" name="logout">Logout <i class="uil uil-signin"></i></button>
-                            </form>
-                        </li>
-                        <?php
-                            }else{
-                        ?>
-                        <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="#">Login <i class="uil uil-signin"></i></a>
-                        </li>
-                        <li class="nav-item mx-3 mt-2">
-                            <div class="pemisahLogin"></div>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Register <i class="uil uil-user"></i></a>
-                        </li>
-                        <?php
-                            }
-                        ?>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-        <!-- NAVBAR END -->
+        <!-- IMPORT NAVBAR -->
+        
+        <?php include("../component/nav.php"); ?>
 
         <!-- CAROUSEL -->
         <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
@@ -195,7 +142,7 @@ if (isset($_SESSION))
                     <div class="row">
                     </div>
                     <div class="row mt-5 justify-content-center align-items-center">
-                        <a class="col-md-3 col-sm-6 icon-wrapper" href="../tawaran-project">
+                        <a class="col-md-3 col-sm-6 icon-wrapper" href="../tawaran-project/?kategori=1">
                             <div class="row justify-content-center align-items-center"><img src="../../assets/icon/graphic-design.png" alt="" class="icon-kategori" /></div>
                             <div class="row justify-content-center">
                                 <div class="underline-kategori"></div>
@@ -203,21 +150,21 @@ if (isset($_SESSION))
                             <div class="row justify-content-center align-items-center mt-3">Graphics Design</div>
                         </a>
 
-                        <a href="../tawaran-project" class="col-md-3 col-sm-6 icon-wrapper">
+                        <a href="../tawaran-project/?kategori=2" class="col-md-3 col-sm-6 icon-wrapper">
                             <div class="row justify-content-center align-items-center"><img src="../../assets/icon/digital-marketing.png" alt="" class="icon-kategori" /></div>
                             <div class="row justify-content-center">
                                 <div class="underline-kategori"></div>
                             </div>
                             <div class="row justify-content-center align-items-center mt-3">Digital Marketing</div>
                         </a>
-                        <a href="../tawaran-project" class="col-md-3 col-sm-6 icon-wrapper">
+                        <a href="../tawaran-project/?kategori=3" class="col-md-3 col-sm-6 icon-wrapper">
                             <div class="row justify-content-center align-items-center"><img src="../../assets/icon/writing-translation.png" alt="" class="icon-kategori" /></div>
                             <div class="row justify-content-center">
                                 <div class="underline-kategori"></div>
                             </div>
                             <div class="row justify-content-center align-items-center mt-3">Writing & Translation</div>
                         </a>
-                        <a href="../tawaran-project" class="col-md-3 col-sm-6 icon-wrapper">
+                        <a href="../tawaran-project/?kategori=4" class="col-md-3 col-sm-6 icon-wrapper">
                             <div class="row justify-content-center align-items-center"><img src="../../assets/icon/video-animation.png" alt="" class="icon-kategori" /></div>
                             <div class="row justify-content-center">
                                 <div class="underline-kategori"></div>
@@ -226,28 +173,28 @@ if (isset($_SESSION))
                         </a>
                     </div>
                     <div class="row mt-5 justify-content-center align-items-center">
-                        <a href="../tawaran-project" class="col-md-3 col-sm-6 icon-wrapper">
+                        <a href="../tawaran-project/?kategori=5" class="col-md-3 col-sm-6 icon-wrapper">
                             <div class="row justify-content-center align-items-center"><img src="../../assets/icon/music-audio.png" alt="" class="icon-kategori" /></div>
                             <div class="row justify-content-center">
                                 <div class="underline-kategori"></div>
                             </div>
                             <div class="row justify-content-center align-items-center mt-3">Musik & Audio</div>
                         </a>
-                        <a href="../tawaran-project" class="col-md-3 col-sm-6 icon-wrapper">
+                        <a href="../tawaran-project/?kategori=6" class="col-md-3 col-sm-6 icon-wrapper">
                             <div class="row justify-content-center align-items-center"><img src="../../assets/icon/programming.png" alt="" class="icon-kategori" /></div>
                             <div class="row justify-content-center">
                                 <div class="underline-kategori"></div>
                             </div>
                             <div class="row justify-content-center align-items-center mt-3">Programming</div>
                         </a>
-                        <a href="../tawaran-project" class="col-md-3 col-sm-6 icon-wrapper">
+                        <a href="../tawaran-project/?kategori=7" class="col-md-3 col-sm-6 icon-wrapper">
                             <div class="row justify-content-center align-items-center"><img src="../../assets/icon/bussiness.png" alt="" class="icon-kategori" /></div>
                             <div class="row justify-content-center">
                                 <div class="underline-kategori"></div>
                             </div>
                             <div class="row justify-content-center align-items-center mt-3">Bussiness</div>
                         </a>
-                        <a href="../tawaran-project" class="col-md-3 col-sm-6 icon-wrapper">
+                        <a href="../tawaran-project/?kategori=8" class="col-md-3 col-sm-6 icon-wrapper">
                             <div class="row justify-content-center align-items-center"><img src="../../assets/icon/photography.png" alt="" class="icon-kategori" /></div>
                             <div class="row justify-content-center">
                                 <div class="underline-kategori"></div>
@@ -260,16 +207,8 @@ if (isset($_SESSION))
         </div>
         <!-- Project Categories END-->
         
-        <?php
-        if(isset($_SESSION)){
-            require("models/freelanceModel.php");
-            $adminData = mysqli_query($conn,"SELECT * FROM admin WHERE username = '$_SESSION'");
-            $freelanceData = mysqli_query($conn,"SELECT * FROM pekerja_jasa WHERE username = '$_SESSION'");
-            $clientData = mysqli_query($conn,"SELECT * FROM umkm WHERE username = '$_SESSION'");
-
-        ?>
         <!-- FOR CLIENT -->
-        <?php if($adminData === false && $freelanceData === false && $clientData === true){
+        <?php if($_SESSION["level"] == "umkm"){
         ?>
         <div class="container mt-5 mb-5" data-aos="fade-up" data-aos-duration="1500">
             <div class="for-client">
@@ -282,10 +221,10 @@ if (isset($_SESSION))
                 </div>
                 <div class="row desc-for-client"><div class="col-7">Work with the largest network of independent professionals and get things done—from quick turnarounds to big transformations.</div></div>
                 <div class="row">
-                    <button style="width: fit-content" class="button-for-client">
-                        <h6>Post a job and hire a pro</h6>
-                        <p>View freelancers <i class="uil uil-arrow-circle-right"></i></p>
-                    </button>
+                    <a href="../tambah_proyek/" style="width: fit-content" class="button-for-client text-decoration-none">
+                        <h6>Unggah Proyekmu</h6>
+                        <p>Klik Disini <i class="uil uil-arrow-circle-right"></i></p>
+                    </a>
                 </div>
             </div>
         </div>
@@ -293,7 +232,7 @@ if (isset($_SESSION))
 
         <!-- FOR Talent -->
         <?php
-        }elseif($adminData === false && $freelanceData === true && $clientData === false){
+        }elseif($_SESSION["level"] == "pekerja_jasa"){
         ?>
         <div class="container mt-5 mb-5" data-aos="fade-up" data-aos-duration="1500">
             <div class="for-talent">
@@ -321,7 +260,6 @@ if (isset($_SESSION))
                 </div>
             </div>
         </div>
-        <?php } ?>
         <?php } ?>
         <!-- FOR CLIENT END -->
 
